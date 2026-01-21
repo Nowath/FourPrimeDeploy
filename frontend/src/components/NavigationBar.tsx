@@ -9,29 +9,29 @@ interface NavigationBarProps {
 
 export default function NavigationBar({ title, onBack, onSettingsClick, className = '' }: NavigationBarProps) {
     return (
-        <div className={`flex items-center justify-between p-4 ${className} z-40 relative`}>
+        <div className={`flex items-center justify-between p-3 sm:p-4 ${className} z-40 relative`}>
             {onBack ? (
                 <button
                     onClick={onBack}
-                    className="p-3 bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl hover:bg-slate-700/50 transition active:scale-95 shadow-lg"
+                    className="p-2 sm:p-3 bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl hover:bg-slate-700/50 transition active:scale-95 shadow-lg touch-manipulation"
                 >
-                    <ArrowLeft className="w-6 h-6 text-white" />
+                    <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </button>
             ) : (
-                <div className="w-12"></div> // Spacer
+                <div className="w-10 sm:w-12"></div>
             )}
 
             {title && (
-                <h1 className="text-lg font-bold uppercase tracking-wider text-slate-300 drop-shadow-md">
+                <h1 className="text-base sm:text-lg font-bold uppercase tracking-wider text-slate-300 drop-shadow-md truncate max-w-[150px] sm:max-w-none">
                     {title}
                 </h1>
             )}
 
             <button
                 onClick={onSettingsClick}
-                className="p-3 bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl hover:bg-slate-700/50 transition active:scale-95 shadow-lg"
+                className="p-2 sm:p-3 bg-slate-800/50 backdrop-blur-md border border-slate-700/50 rounded-xl hover:bg-slate-700/50 transition active:scale-95 shadow-lg touch-manipulation"
             >
-                <Settings className="w-6 h-6 text-white" />
+                <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
         </div>
     );
